@@ -1,6 +1,7 @@
 docker run -it \
     -v /media/itsarin/HDD-2TB3/midv500_data:/workspace/midv500_data \
     -v /home/itsarin/Code/a4/ocr/course_intro_ocr:/workspace/course_intro_ocr \
+    -v /media/itsarin/HDD-2TB3/CourseOCRTask3:/workspace/bars_dataset \
     --name ocr_course \
     --runtime=nvidia \
     --gpus all \
