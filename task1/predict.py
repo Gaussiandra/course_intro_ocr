@@ -35,9 +35,7 @@ def predict(dataset_path, ckpt_path, threshold):
             x, gt_mask, unique_keys = batch
 
             mask = detector(x.cuda())
-            # print(gt_mask.shape, mask.shape)
             mask = torch.sigmoid(mask.cpu()).numpy()
-            # print(gt_mask.shape, mask.shape)
 
             for i, key in enumerate(unique_keys):
                 mask = np.array(mask > threshold, dtype=np.uint8)
@@ -55,18 +53,6 @@ def predict(dataset_path, ckpt_path, threshold):
                 )
 
                 results_dict[key] = verticies
-
-                # if batch_idx < 10:
-                #     import matplotlib.pyplot as plt
-                #     fig, ax = plt.subplots( nrows=1, ncols=2 ) 
-                #     ax[0].imshow(mask[i] > threshold)
-                #     # print(mask.shape, gt_mask.shape)
-                #     ax[0].scatter(verticies[:, 0] * mask[i].shape[1], verticies[:, 1] * mask[i].shape[0])
-                #     ax[1].imshow(gt_mask[i][0])
-                #     fig.savefig(f"viz/viz_{key}.png", dpi=400)
-                #     plt.close(fig)
-                # else:
-                #     assert False
 
     dump_results_dict(results_dict, Path() / 'pred.json')
     acc = measure_crop_accuracy(

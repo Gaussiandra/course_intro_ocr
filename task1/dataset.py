@@ -8,7 +8,6 @@ from torch.utils.data import Dataset
 
 from course_intro_ocr_t1.data import MidvPackage
 
-
 class DocsDataset(Dataset):
     def __init__(self, datapacks_path, is_test):
         self.is_test = is_test
@@ -27,7 +26,6 @@ class DocsDataset(Dataset):
             mean=(0.485, 0.456, 0.406),
             std=(0.229, 0.224, 0.225)
         )
-
 
     def __len__(self):
         return len(self.data_indicies)
