@@ -2,9 +2,12 @@
 
 [Чекпоинт модели находится тут](https://drive.google.com/file/d/1bREftDNv3T9-PTt10z6lKmDDyFU0Z5s9/view?usp=sharing)
 
-После запуска контейнера нужно ещё доставить несколько пакетов:
-
-`apt-get update && apt-get install ffmpeg libsm6 libxext6  -y`
+Как воспроизвести:
+1. Запустить контейнер с помощью `start.sh`
+2. `apt-get update && apt-get install ffmpeg libsm6 libxext6  -y`
+3. `pip install -r requirements.txt`
+4. Запустить обучение с помощью скрипта `train.py`
+5. Получить предсказания с помощью `predict.py`
 
 ## Описание
 В этом разделе находятся материалы первого домашнего задания: пакет с кодом для работы с данными, вычислением метрик и пример baseline решения.

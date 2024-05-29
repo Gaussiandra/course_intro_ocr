@@ -31,7 +31,6 @@ class FreezeNetwork(pl.callbacks.Callback):
 
             self.is_freezed = False
         
-
 class DiceLossWithLogits(nn.Module):
     def __init__(self, alpha=1):
         super().__init__()
